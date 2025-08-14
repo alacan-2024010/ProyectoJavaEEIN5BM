@@ -1,7 +1,7 @@
 <%-- 
     Document   : proveedores
     Created on : 22/07/2025, 17:10:03
-    Author     : User
+    Author     : Adrian
 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -23,11 +23,11 @@
         <div class="form-container">
             <h2>Gestión de Proveedores</h2>
             <form action="Controlador?menu=Proveedor"method="POST" class="formulario">
-                <input type="text"  name="txtCodigoProveedor" placeholder="Código del Proveedor" />
-                <input type="text"  name="txtNombreProveedor" placeholder="Nombre" required />
-                <input type="text"  name="txtDireccion" placeholder="Dirección" required />
-                <input type="text"  name="txtCelular" placeholder="Celular" required />
-                <input type="email"  name="txtCorreo" placeholder="Correo" required />
+                <input type="text" value="${proveedor.getCodigoProveedor()}" name="txtCodigoProveedor" placeholder="ID" />
+                <input type="text" value="${proveedor.getNombreProveedor()}" " name="txtNombreProveedor" placeholder="Nombre" required />
+                <input type="text" value="${proveedor.getDireccionProveedor()}" name="txtDireccionProveedor" placeholder="Dirección" required />
+                <input type="text" value="${proveedor.getTelefonoProveedor()}" name="txtTelefonoProveedor" placeholder="Celular" required />
+                <input type="email" value="${proveedor.getCorreoProveedor()}" name="txtCorreoProveedor" placeholder="Correo" required />
 
                 <div class="botones">
                     <button type="submit" name="accion" value="Agregar">Agregar</button>
@@ -53,7 +53,15 @@
                     </tr>
                 </thead>
                 <tbody>
-                       
+                    <c:forEach var="proveedor" items="${proveedores}" >
+                        <tr>
+                            <td>${proveedor.codigoProveedor}</td>
+                            <td>${proveedor.nombreProveedor}</td>
+                            <td>${proveedor.direccionProveedor}</td>
+                            <td>${proveedor.telefonoProveedor}</td>
+                            <td>${proveedor.correoProveedor}</td>
+                        </tr>
+                    </c:forEach>
                 </tbody>
             </table>
         </div>

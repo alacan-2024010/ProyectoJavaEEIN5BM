@@ -24,7 +24,7 @@ public class Controlador extends HttpServlet {
     Empleado empleado = new Empleado();
     EmpleadoDAO empleadoDAO = new EmpleadoDAO();
     Proveedor proveedor = new Proveedor();
-    ProveedorDAO proveedorDAO = new ProveedorDAO();
+    ProveedorDAO proveedorDao = new ProveedorDAO();
     int codEmpleado;
     
     /**
@@ -52,6 +52,29 @@ public class Controlador extends HttpServlet {
                         request.getRequestDispatcher("cliente.jsp").forward(request, response);
                         break;
                     case "Proveedor":
+                        switch (accion) {
+                            case "Listar":
+                                List listaProveedores = proveedorDao.listar();
+                                request.setAttribute("proveedores", listaProveedores);
+                                break;
+                            case "Agregar":
+                                    String nombreProveedor = request.getParameter("txtNombreProveedor");
+                                    String direccionProveedor = request.getParameter("txtDireccionProveedor");
+                                    String telefonoProveedor = request.getParameter("txtTelefonoProveedor");
+                                    String correoProveedor = request.getParameter("txtCorreoProveedor");
+                                    
+                                    proveedor.setNombreProveedor(nombreProveedor);
+                                    proveedor.setDireccionProveedor(direccionProveedor);
+                                    proveedor.setTelefonoProveedor(telefonoProveedor);
+                                    proveedor.setCorreoProveedor(correoProveedor);
+                                    
+                                    proveedorDao.agregar(proveedor);
+                                    request.getRequestDispatcher("Controlador?menu?Proveedor&accion=Listar").forward(request, response);
+                                break;
+                            default:
+                                throw new AssertionError();
+                        }
+                        
                         request.getRequestDispatcher("proveedor.jsp").forward(request, response);
                         break;
                     case "Producto":
