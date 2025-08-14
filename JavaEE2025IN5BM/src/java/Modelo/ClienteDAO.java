@@ -1,66 +1,54 @@
 package Modelo;
 
+import Config.Conexion;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.List;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 
 public class ClienteDAO {
-    
-    private EntityManagerFactory emf;
-    private EntityManager em;
+    Conexion cn = new Conexion();
+    Connection con;
+    PreparedStatement ps;
+    ResultSet rs;
+    int resp;
 
-    public ClienteDAO() {
-        emf = Persistence.createEntityManagerFactory("dominio");
-        em = emf.createEntityManager();
-    }
-
-    public void crearCliente(Cliente cliente) {
+     public List listar() {
+        String sql = "call sp_ListarClientes()";
+        List<Cliente> listaCliente = new ArrayList<>();
         try {
-            em.getTransaction().begin();
-            em.persist(cliente); 
-            em.getTransaction().commit();
-        } catch (Exception e) {
-            em.getTransaction().rollback();
-            e.printStackTrace();
-        }
-    }
-
-    public Cliente buscarCliente(int codigoCliente) {
-        return em.find(Cliente.class, codigoCliente);
-    }
-
-    public void actualizarCliente(Cliente cliente) {
-        try {
-            em.getTransaction().begin();
-            em.merge(cliente);
-            em.getTransaction().commit();
-        } catch (Exception e) {
-            em.getTransaction().rollback();
-            e.printStackTrace();
-        }
-    }
-
-    public void eliminarCliente(int codigoCliente) {
-        try {
-            Cliente cliente = em.find(Cliente.class, codigoCliente);
-            if (cliente != null) {
-                em.getTransaction().begin();
-                em.remove(cliente); 
-                em.getTransaction().commit();
+            con = cn.Conexion();
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                Cliente c = new Cliente();
+                c.setCodigoCliente(rs.getInt(1));
+                c.setNombreCliente(rs.getString(2));
+                c.setApellidoCliente(rs.getString(3));
+                c.setEmailCliente(rs.getString(4));
+                c.setContrasenia(rs.getString(5));
+                listaCliente.add(c);
             }
         } catch (Exception e) {
-            em.getTransaction().rollback();
             e.printStackTrace();
         }
+        return listaCliente;
     }
 
-    public List<Cliente> listarClientes() {
-        return em.createQuery("SELECT c FROM Cliente c", Cliente.class).getResultList();
-    }
-
-    public void cerrar() {
-        em.close();
-        emf.close();
+    public int agregar(Cliente cli) {
+        String sql = "call sp_AgregarCliente(?,?,?,?)";
+        try {
+            con = cn.Conexion();
+            ps = con.prepareStatement(sql);
+            ps.setString(1, cli.getNombreCliente());
+            ps.setString(2, cli.getApellidoCliente());
+            ps.setString(3, cli.getEmailCliente());
+            ps.setString(4, cli.getContrasenia());
+            resp = ps.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return resp;
     }
 }

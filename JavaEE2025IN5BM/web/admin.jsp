@@ -16,7 +16,7 @@
     <body>
         <nav>
             <ul>
-                <li><a href="Controlador?menu=Cliente" target="contenido">Clientes</a></li>
+                <li><a href="Controlador?menu=Cliente&accion=Listar" target="contenido">Clientes</a></li>
                 <li><a href="Controlador?menu=Proveedor&accion=Listar" target="contenido">Proveedores</a></li>
                 <li><a href="Controlador?menu=Producto" target="contenido">Productos</a></li>
                 <li><a href="Controlador?menu=Empleado&accion=Listar" target="contenido">Empleados</a></li>

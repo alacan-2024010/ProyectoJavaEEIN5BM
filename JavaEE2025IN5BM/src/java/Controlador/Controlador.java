@@ -4,12 +4,13 @@
  */
 package Controlador;
 
+import Modelo.Cliente;
+import Modelo.ClienteDAO;
 import Modelo.Empleado;
 import Modelo.EmpleadoDAO;
 import Modelo.Proveedor;
 import Modelo.ProveedorDAO;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -21,6 +22,8 @@ import javax.servlet.http.HttpServletResponse;
  * @author informatica
  */
 public class Controlador extends HttpServlet {
+    Cliente cliente = new Cliente();
+    ClienteDAO clienteDAO = new ClienteDAO();
     Empleado empleado = new Empleado();
     EmpleadoDAO empleadoDAO = new EmpleadoDAO();
     Proveedor proveedor = new Proveedor();
@@ -49,6 +52,34 @@ public class Controlador extends HttpServlet {
             if(menu!=null){
                 switch (menu) {
                     case "Cliente":
+                        switch (accion) {
+                            case "Listar":
+                                List listaClientes = clienteDAO.listar();
+                                request.setAttribute("clientes", listaClientes);
+                                break;
+                            case "Agregar":
+                                String nombre = request.getParameter("txtNombreCliente");
+                                String apellido = request.getParameter("txtApellidoCliente");
+                                String correo = request.getParameter("txtCorreoCliente");
+                                String contra = request.getParameter("txtContraseniaCliente");
+                                cliente.setNombreCliente(nombre);
+                                cliente.setApellidoCliente(apellido);
+                                cliente.setEmailCliente(correo);
+                                cliente.setContrasenia(contra);
+                                clienteDAO.agregar(cliente);
+                                request.getRequestDispatcher("Controlador?menu=Cliente&accion=Listar").forward(request,response);
+                                break;
+                            case "Editar":
+                                break;
+                            case "Actualizar":
+                                break;
+                            case "Eliminar":
+                                break;
+                            case "Buscar":
+                                break;
+                            default:
+                                throw new AssertionError();
+                        }
                         request.getRequestDispatcher("cliente.jsp").forward(request, response);
                         break;
                     case "Proveedor":
@@ -60,8 +91,8 @@ public class Controlador extends HttpServlet {
                     case "Empleado":
                          switch (accion) {
                             case "Listar":
-                                List listaEmpleado = empleadoDAO.listar();
-                                request.setAttribute("empleados", listaEmpleado);
+                                List listaEmpleados = empleadoDAO.listar();
+                                request.setAttribute("empleados", listaEmpleados);
                                 break;
                             case "Agregar":
                                
