@@ -28,16 +28,16 @@ public class Producto {
     private int stock;
     @ManyToOne
     @JoinColumn(name = "codigoCategoria")
-    private Cliente categoria;
+    private Categoria categoria;
 
     @ManyToOne
     @JoinColumn(name = "codigoProveedor")
-    private Empleado proveedor;
+    private Proveedor proveedor;
 
     public Producto() {
     }
 
-    public Producto(int codigoProducto, String nombreProducto, String descripcionProducto, BigDecimal precioProducto, int stock, Cliente categoria, Empleado proveedor) {
+    public Producto(int codigoProducto, String nombreProducto, String descripcionProducto, BigDecimal precioProducto, int stock, Categoria categoria, Proveedor proveedor) {
         this.codigoProducto = codigoProducto;
         this.nombreProducto = nombreProducto;
         this.descripcionProducto = descripcionProducto;
@@ -87,19 +87,19 @@ public class Producto {
         this.stock = stock;
     }
 
-    public Cliente getCategoria() {
+    public Categoria getCategoria() {
         return categoria;
     }
 
-    public void setCategoria(Cliente categoria) {
+    public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
     }
 
-    public Empleado getProveedor() {
+    public Proveedor getProveedor() {
         return proveedor;
     }
 
-    public void setProveedor(Empleado proveedor) {
+    public void setProveedor(Proveedor proveedor) {
         this.proveedor = proveedor;
     }
 
