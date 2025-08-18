@@ -26,11 +26,11 @@ Author     : Francisco
             <div class="panel-formulario">
                 <h1>Gestión de Clientes</h1>
                  <form action="Controlador?menu=Cliente" method="POST" class="formulario">
-                    <input type="text" autocomplete="off" value="${cliente.getCodigoCliente()}" name="txtCodigoCliente" placeholder="Codigo del cliente" />
-                    <input type="text" autocomplete="off" value="${cliente.getNombreCliente()}" name="txtNombreCliente" placeholder="Nombre del Cliente" required/>
-                    <input type="text" autocomplete="off" value="${cliente.getApellidoCliente()}" name="txtApellidoCliente" placeholder="Apellido del Cliente"required />
-                    <input type="text" autocomplete="off" value="${cliente.getEmailCliente()}"name="txtCorreoCliente" placeholder="Correo del Cliente"required />
-                    <input type="text" autocomplete="off" value="${cliente.getContrasenia()}"name="txtContraseniaCliente" placeholder="Contraseña" required/>
+                    <input type="text" value="${cliente.getCodigoCliente()}" name="txtCodigoCliente" placeholder="Codigo del cliente" />
+                    <input type="text"  value="${cliente.getNombreCliente()}" name="txtNombreCliente" placeholder="Nombre del Cliente" required/>
+                    <input type="text"value="${cliente.getApellidoCliente()}" name="txtApellidoCliente" placeholder="Apellido del Cliente"required />
+                    <input type="email" value="${cliente.getEmailCliente()}"name="txtCorreoCliente" placeholder="Correo del Cliente"required />
+                    <input type="text" value="${cliente.getContrasenia()}"name="txtContraseniaCliente" placeholder="Contraseña" required/>
                     <div class="botones">
                         <button type="submit" name="accion" value="Agregar">Agregar</button>
                         <button type="submit" name="accion" value="Actualizar">Actualizar</button>

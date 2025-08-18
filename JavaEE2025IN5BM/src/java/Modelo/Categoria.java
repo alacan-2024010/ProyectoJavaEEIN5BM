@@ -2,15 +2,11 @@
 package Modelo;
 import javax.persistence.*;
 
-@Entity
-@Table(name = "Categorias")
+
 public class Categoria {
     
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int codigCategoria;
     
-    @Column
     private String nombre;
 
     public Categoria() {
