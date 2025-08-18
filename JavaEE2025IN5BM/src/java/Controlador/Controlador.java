@@ -35,7 +35,7 @@ public class Controlador extends HttpServlet {
     Cliente cliente = new Cliente();
     ClienteDAO clienteDAO = new ClienteDAO();
     Empleado empleado = new Empleado();
-    EmpleadoDAO empleadoDAO = new EmpleadoDAO();
+    EmpleadoDAO empleadoDao = new EmpleadoDAO();
     Proveedor proveedor = new Proveedor();
     ProveedorDAO proveedorDao = new ProveedorDAO();
     Producto producto = new Producto();
@@ -155,11 +155,24 @@ public class Controlador extends HttpServlet {
                 case "Empleado":
                     switch (accion) {
                         case "Listar":
-                            List listaEmpleado = empleadoDAO.listar();
+                            List listaEmpleado = empleadoDao.listar();
                             request.setAttribute("empleados", listaEmpleado);
                             break;
                         case "Agregar":
-
+                            String nombre = request.getParameter("txtNombre");
+                            String apellido = request.getParameter("txtApellido");
+                            String direccion = request.getParameter("txtDireccion");
+                            String telefono = request.getParameter("txtTelefono");
+                            String correo = request.getParameter("txtCorreo");
+                            String puesto = request.getParameter("txtPuesto");
+                            empleado.setNombreEmpleado(nombre);
+                            empleado.setApellidoEmpleado(apellido);
+                            empleado.setDireccionEmpleado(direccion);
+                            empleado.setTelefonoEmpleado(telefono);
+                            empleado.setEmailEmpleado(correo);
+                            empleado.setPuestoEmpleado(puesto);
+                            empleadoDao.agregar(empleado);
+                            request.getRequestDispatcher("Controlador?menu=Empleado&accion=Listar").forward(request, response);
                             break;
                         case "Editar":
                             break;
@@ -224,95 +237,7 @@ public class Controlador extends HttpServlet {
                     break;
                 default:
                     throw new AssertionError();
-            }
-            
-            if(menu!=null){
-                switch (menu) {
-                    case "Cliente":
-                        switch (accion) {
-                            case "Listar":
-                                List listaClientes = clienteDAO.listar();
-                                request.setAttribute("clientes", listaClientes);
-                                break;
-                            case "Agregar":
-                                String nombre = request.getParameter("txtNombreCliente");
-                                String apellido = request.getParameter("txtApellidoCliente");
-                                String correo = request.getParameter("txtCorreoCliente");
-                                String contra = request.getParameter("txtContraseniaCliente");
-                                cliente.setNombreCliente(nombre);
-                                cliente.setApellidoCliente(apellido);
-                                cliente.setEmailCliente(correo);
-                                cliente.setContrasenia(contra);
-                                clienteDAO.agregar(cliente);
-                                request.getRequestDispatcher("Controlador?menu=Cliente&accion=Listar").forward(request,response);
-                                break;
-                            case "Editar":
-                                break;
-                            case "Actualizar":
-                                break;
-                            case "Eliminar":
-                                break;
-                            case "Buscar":
-                                break;
-                            default:
-                                throw new AssertionError();
-                        }
-                        request.getRequestDispatcher("cliente.jsp").forward(request, response);
-                        break;
-                    case "Proveedor":
-                        request.getRequestDispatcher("proveedor.jsp").forward(request, response);
-                        break;
-                    case "Producto":
-                        request.getRequestDispatcher("producto.jsp").forward(request, response);
-                        break;
-                    case "Empleado":
-                         switch (accion) {
-                            case "Listar":
-                                List listaEmpleados = empleadoDAO.listar();
-                                request.setAttribute("empleados", listaEmpleados);
-                                break;
-                            case "Agregar":
-                               
-                                break;
-                            case "Editar":
-                                break;
-                            case "Actualizar":
-                                break;
-                            case "Eliminar":
-                                break;
-                            case "Buscar":
-                                break;
-                            default:
-                                throw new AssertionError();
-                        }
-                        request.getRequestDispatcher("empleado.jsp").forward(request, response);
-                    case "Venta":
-                        request.getRequestDispatcher("venta.jsp").forward(request, response);
-                        break;
-                    case "DetalleVenta":
-                        request.getRequestDispatcher("detalleVenta.jsp").forward(request, response);
-                        break;
-                    case "Factura":
-                        request.getRequestDispatcher("factura.jsp").forward(request, response);
-                        break;
-                    case "Compra":
-                        request.getRequestDispatcher("compras.jsp").forward(request, response);
-                        break;
-                    case "DetalleCompra":
-                        request.getRequestDispatcher("detalleCompra.jsp").forward(request, response);
-                        break;
-                    case "Cambiar":
-                        request.getRequestDispatcher("principal.jsp").forward(request, response);
-                        break;
-                    case "Cerrar":
-                        request.getRequestDispatcher("index.jsp").forward(request, response);
-                        break;
-                    default:
-                        throw new AssertionError();
-                }
-            }
-            
-            
+            }    
         }
     }
 

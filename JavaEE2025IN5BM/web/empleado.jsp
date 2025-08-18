@@ -16,10 +16,6 @@
 </head>
 <body>
 
-    <nav>
-        <a href="admin.jsp" class="logo">Essenza & Co.</a>
-    </nav>
-
     <div class="contenedor-principal">
         <div class="panel-formulario">
             <h1>Gestión de Empleados</h1>
