@@ -4,25 +4,16 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import javax.persistence.*;
 
-@Entity
-@Table(name = "Facturas")
+
 public class Factura {
-    
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int codigoFactura;
     
-    @Column
     private String numeroFactura;
     
-    @Column 
     private LocalDateTime fechaEmision;
     
-    @Column
     private BigDecimal totalFactura;
     
-    @OneToMany
-    @JoinColumn(name="codigoVenta")
     private Venta codVenta;
 
     public Factura() {
