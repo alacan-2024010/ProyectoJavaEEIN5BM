@@ -20,17 +20,22 @@ public class Factura {
     
     @Column
     private BigDecimal totalFactura;
+    
+    @OneToMany
+    @JoinColumn(name="codigoVenta")
+    private Venta codVenta;
 
     public Factura() {
     }
-
-    public Factura(int codigoFactura, String numeroFactura, LocalDateTime fechaEmision, BigDecimal totalFactura) {
+    
+    public Factura(int codigoFactura, String numeroFactura, LocalDateTime fechaEmision, BigDecimal totalFactura, Venta codVenta) {
         this.codigoFactura = codigoFactura;
         this.numeroFactura = numeroFactura;
         this.fechaEmision = fechaEmision;
         this.totalFactura = totalFactura;
+        this.codVenta = codVenta;
     }
-
+    
     public int getCodigoFactura() {
         return codigoFactura;
     }
@@ -63,11 +68,11 @@ public class Factura {
         this.totalFactura = totalFactura;
     }
 
-    @Override
-    public String toString() {
-        return "Factura{" + "codigoFactura=" + codigoFactura + ", numeroFactura=" + numeroFactura + ", fechaEmision=" + fechaEmision + ", totalFactura=" + totalFactura + '}';
+    public Venta getCodVenta() {
+        return codVenta;
     }
-    
-    
-    
+
+    public void setCodVenta(Venta codVenta) {
+        this.codVenta = codVenta;
+    }
 }
