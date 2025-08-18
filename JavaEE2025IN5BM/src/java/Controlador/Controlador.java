@@ -165,7 +165,7 @@ public class Controlador extends HttpServlet {
                             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm");
                             LocalDateTime fechaEmision = LocalDateTime.parse(fecha, formatter);
 
-                            String codCliente = request.getParameter("txtCodCliente");
+                            String codCliente = request.getParameter("txtCodigoCliente");
                             String codEmpleado = request.getParameter("txtCodigoEmpleado");
 
                             venta.setFecha(fechaEmision);

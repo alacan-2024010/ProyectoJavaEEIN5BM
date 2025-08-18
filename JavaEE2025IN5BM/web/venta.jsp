@@ -23,10 +23,10 @@
                 <form action="Controlador?menu=Venta" method="POST" class="formulario">
 
                     <input type="text" autocomplete="off" value="${venta.getCodigoVenta()}" id="txtCodigoVenta" name="txtCodigoVenta" class="input" placeholder="ID de la Venta" />
-                    <input type="text" autocomplete="off" value="${venta.getFecha()}" id="txtFecha" name="txtFecha" class="input" placeholder="Fecha" required/>
-                    <input type="datetime-local" autocomplete="off" value="${venta.getTotal()}" id="txtTotal" name="txtTotal" class="input" placeholder="Total" required/>
-                    <input type="text" autocomplete="off" value="${venta.getCodClietne()}" id="txtCodigoCliente" name="txtCodigoCliente" class="input" placeholder="Codigo De Cliente" required/>
-                    <input type="text" autocomplete="off" value="${venta.getCodEmpelado()}" id="txtCodigoEmpleado" name="txtCodigoEmpleado" class="input" placeholder="Código de Empleado" required/>
+                    <input type="datetime-local" autocomplete="off" value="${venta.getFecha()}" id="txtFecha" name="txtFecha" class="input" placeholder="Fecha" required/>
+                    <input type="text" autocomplete="off" value="${venta.getTotal()}" id="txtTotal" name="txtTotal" class="input" placeholder="Total" required/>
+                    <input type="text" autocomplete="off" value="${venta.getCodCliente()}" id="txtCodigoCliente" name="txtCodigoCliente" class="input" placeholder="Codigo De Cliente" required/>
+                    <input type="text" autocomplete="off" value="${venta.getCodEmpleado()}" id="txtCodigoEmpleado" name="txtCodigoEmpleado" class="input" placeholder="Código de Empleado" required/>
 
                 <div class="botones">
                     <button>Agregar</button>

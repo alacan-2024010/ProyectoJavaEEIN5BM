@@ -30,6 +30,7 @@ public class VentaDAO {
                 Venta prov = new Venta();
                 Cliente cl = new Cliente();
                 Empleado em = new Empleado();
+                
                 prov.setCodigoVenta(rs.getInt(1));
                 prov.setFecha(rs.getTimestamp(2).toLocalDateTime());
                 prov.setTotal(rs.getBigDecimal(3));

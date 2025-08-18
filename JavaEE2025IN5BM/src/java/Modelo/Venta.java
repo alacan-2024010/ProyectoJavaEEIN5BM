@@ -3,42 +3,20 @@ package Modelo;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.List;
-import java.util.Scanner;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.Persistence;
-import javax.persistence.Table;
-import javax.persistence.TypedQuery;
 
 
 
-@Entity
-@Table (name = "Ventas")
+
+
 public class Venta {
-     @Id
-    @Column
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private int codigoVenta ;
-    @Column
+
     private LocalDateTime  fecha;
-    @Column
     private BigDecimal total;
-    @OneToMany
-    @JoinColumn(name = "codigoCliente")
+
     private Cliente codCliente;
 
-    @OneToMany
-    @JoinColumn(name = "codigoEmpleado")
     private Empleado codEmpleado;
     
     
