@@ -1,10 +1,11 @@
 package Modelo;
 
 public class Empleado {
+
     private int codigoEmpleado;
     private String nombreEmpleado;
     private String apellidoEmpleado;
-    private String direccionEmpleado;       
+    private String direccionEmpleado;      
     private String telefonoEmpleado;
     private String emailEmpleado;
     private String puestoEmpleado;
@@ -77,5 +78,8 @@ public class Empleado {
         this.puestoEmpleado = puestoEmpleado;
     }
 
-   
+    @Override
+    public String toString() {
+        return "Empleado{" + "codigoEmpleado=" + codigoEmpleado + ", nombreEmpleado=" + nombreEmpleado + ", apellidoEmpleado=" + apellidoEmpleado + ", direccionEmpleado=" + direccionEmpleado + ", telefonoEmpleado=" + telefonoEmpleado + ", emailEmpleado=" + emailEmpleado + ", puestoEmpleado=" + puestoEmpleado + '}';
+    }
 }
