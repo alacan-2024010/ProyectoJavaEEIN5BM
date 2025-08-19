@@ -1,5 +1,5 @@
 package Modelo;
-
+ 
 import Config.Conexion;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -7,8 +7,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
-
+ 
+ 
 public class DetalleVentaDAO {
     
     Conexion cn= new Conexion();
@@ -54,7 +54,7 @@ public class DetalleVentaDAO {
         try {
             con = cn.Conexion();
             ps=con.prepareStatement(sql);
-
+ 
             ps.setInt(1, deV.getCantidad());
             ps.setBigDecimal(2, deV.getPrecioUnitario());
            ps.setInt(5, deV.getVenta().getCodigoVenta());
@@ -65,6 +65,5 @@ public class DetalleVentaDAO {
         }
         return resp;
     }
- 
    
 }

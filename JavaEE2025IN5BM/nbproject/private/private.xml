@@ -3,68 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/C:/JavaEE2025IN5BM/ProyectoJavaEEIN5BM/JavaEE2025IN5BM/src/java/Modelo/VentaDAO.java</file>
-            <file>file:/C:/JavaEE2025IN5BM/ProyectoJavaEEIN5BM/JavaEE2025IN5BM/web/factura.jsp</file>
-            <file>file:/C:/JavaEE2025IN5BM/ProyectoJavaEEIN5BM/JavaEE2025IN5BM/web/venta.jsp</file>
-            <file>file:/C:/JavaEE2025IN5BM/ProyectoJavaEEIN5BM/JavaEE2025IN5BM/web/admin.jsp</file>
-            <file>file:/C:/JavaEE2025IN5BM/ProyectoJavaEEIN5BM/JavaEE2025IN5BM/src/java/Controlador/Controlador.java</file>
-            <file>file:/C:/JavaEE2025IN5BM/ProyectoJavaEEIN5BM/JavaEE2025IN5BM/src/java/Modelo/Factura.java</file>
-            <file>file:/C:/JavaEE2025IN5BM/ProyectoJavaEEIN5BM/JavaEE2025IN5BM/src/java/Modelo/FacturaDAO.java</file>
-            <file>file:/C:/JavaEE2025IN5BM/ProyectoJavaEEIN5BM/JavaEE2025IN5BM/src/java/Modelo/Venta.java</file>
-            <file>file:/C:/JavaEE2025IN5BM/ProyectoJavaEEIN5BM/JavaEE2025IN5BM/src/java/Modelo/ProveedorDAO.java</file>
-=======
-            <file>file:/C:/ProyectoJavaEEIN5BM/ProyectoJavaEEIN5BM/JavaEE2025IN5BM/src/java/Modelo/ProductoDAO.java</file>
-            <file>file:/C:/ProyectoJavaEEIN5BM/ProyectoJavaEEIN5BM/JavaEE2025IN5BM/src/java/Modelo/FacturaDAO.java</file>
-            <file>file:/C:/ProyectoJavaEEIN5BM/ProyectoJavaEEIN5BM/JavaEE2025IN5BM/src/java/Modelo/Producto.java</file>
-            <file>file:/C:/ProyectoJavaEEIN5BM/ProyectoJavaEEIN5BM/JavaEE2025IN5BM/web/factura.jsp</file>
-            <file>file:/C:/ProyectoJavaEEIN5BM/ProyectoJavaEEIN5BM/JavaEE2025IN5BM/web/proveedor.jsp</file>
-            <file>file:/C:/ProyectoJavaEEIN5BM/ProyectoJavaEEIN5BM/JavaEE2025IN5BM/web/admin.jsp</file>
-            <file>file:/C:/ProyectoJavaEEIN5BM/ProyectoJavaEEIN5BM/JavaEE2025IN5BM/src/java/Modelo/ProveedorDAO.java</file>
-            <file>file:/C:/ProyectoJavaEEIN5BM/ProyectoJavaEEIN5BM/JavaEE2025IN5BM/src/java/Controlador/Controlador.java</file>
-        </group>
-        <group>
-            <file>file:/C:/ProyectoJavaEEIN5BM/ProyectoJavaEEIN5BM/JavaEE2025IN5BM/src/java/Modelo/ProductoDAO.java</file>
-            <file>file:/C:/ProyectoJavaEEIN5BM/ProyectoJavaEEIN5BM/JavaEE2025IN5BM/src/java/Modelo/FacturaDAO.java</file>
-            <file>file:/C:/ProyectoJavaEEIN5BM/ProyectoJavaEEIN5BM/JavaEE2025IN5BM/src/java/Modelo/Producto.java</file>
-            <file>file:/C:/ProyectoJavaEEIN5BM/ProyectoJavaEEIN5BM/JavaEE2025IN5BM/web/factura.jsp</file>
-            <file>file:/C:/ProyectoJavaEEIN5BM/ProyectoJavaEEIN5BM/JavaEE2025IN5BM/web/proveedor.jsp</file>
-            <file>file:/C:/ProyectoJavaEEIN5BM/ProyectoJavaEEIN5BM/JavaEE2025IN5BM/web/admin.jsp</file>
-            <file>file:/C:/ProyectoJavaEEIN5BM/ProyectoJavaEEIN5BM/JavaEE2025IN5BM/src/java/Modelo/ProveedorDAO.java</file>
-            <file>file:/C:/ProyectoJavaEEIN5BM/ProyectoJavaEEIN5BM/JavaEE2025IN5BM/src/java/Controlador/Controlador.java</file>
-        </group>
-        <group>
-            <file>file:/C:/ProyectoJavaEEIN5BM/ProyectoJavaEEIN5BM/JavaEE2025IN5BM/src/java/Modelo/ProductoDAO.java</file>
-            <file>file:/C:/ProyectoJavaEEIN5BM/ProyectoJavaEEIN5BM/JavaEE2025IN5BM/src/java/Modelo/FacturaDAO.java</file>
-            <file>file:/C:/ProyectoJavaEEIN5BM/ProyectoJavaEEIN5BM/JavaEE2025IN5BM/src/java/Modelo/Producto.java</file>
-            <file>file:/C:/ProyectoJavaEEIN5BM/ProyectoJavaEEIN5BM/JavaEE2025IN5BM/web/factura.jsp</file>
-            <file>file:/C:/ProyectoJavaEEIN5BM/ProyectoJavaEEIN5BM/JavaEE2025IN5BM/web/proveedor.jsp</file>
-            <file>file:/C:/ProyectoJavaEEIN5BM/ProyectoJavaEEIN5BM/JavaEE2025IN5BM/web/admin.jsp</file>
-            <file>file:/C:/ProyectoJavaEEIN5BM/ProyectoJavaEEIN5BM/JavaEE2025IN5BM/src/java/Modelo/ProveedorDAO.java</file>
-            <file>file:/C:/ProyectoJavaEEIN5BM/ProyectoJavaEEIN5BM/JavaEE2025IN5BM/src/java/Controlador/Controlador.java</file>
-        </group>
-        <group>
-            <file>file:/C:/ProyectoJavaEEIN5BM/ProyectoJavaEEIN5BM/JavaEE2025IN5BM/src/java/Modelo/ProductoDAO.java</file>
-            <file>file:/C:/ProyectoJavaEEIN5BM/ProyectoJavaEEIN5BM/JavaEE2025IN5BM/web/producto.jsp</file>
-            <file>file:/C:/ProyectoJavaEEIN5BM/ProyectoJavaEEIN5BM/JavaEE2025IN5BM/src/java/Modelo/Producto.java</file>
-            <file>file:/C:/ProyectoJavaEEIN5BM/ProyectoJavaEEIN5BM/JavaEE2025IN5BM/src/java/Modelo/FacturaDAO.java</file>
-            <file>file:/C:/ProyectoJavaEEIN5BM/ProyectoJavaEEIN5BM/JavaEE2025IN5BM/web/factura.jsp</file>
-            <file>file:/C:/ProyectoJavaEEIN5BM/ProyectoJavaEEIN5BM/JavaEE2025IN5BM/web/proveedor.jsp</file>
-            <file>file:/C:/ProyectoJavaEEIN5BM/ProyectoJavaEEIN5BM/JavaEE2025IN5BM/src/java/Modelo/ProveedorDAO.java</file>
+            <file>file:/C:/ProyectoJavaEEIN5BM/ProyectoJavaEEIN5BM/JavaEE2025IN5BM/src/java/Modelo/DetalleVentaDAO.java</file>
+            <file>file:/C:/ProyectoJavaEEIN5BM/ProyectoJavaEEIN5BM/JavaEE2025IN5BM/web/detalleVenta.jsp</file>
+            <file>file:/C:/ProyectoJavaEEIN5BM/ProyectoJavaEEIN5BM/JavaEE2025IN5BM/src/java/Config/Conexion.java</file>
+            <file>file:/C:/ProyectoJavaEEIN5BM/ProyectoJavaEEIN5BM/JavaEE2025IN5BM/src/java/Modelo/DetalleVenta.java</file>
             <file>file:/C:/ProyectoJavaEEIN5BM/ProyectoJavaEEIN5BM/JavaEE2025IN5BM/web/admin.jsp</file>
             <file>file:/C:/ProyectoJavaEEIN5BM/ProyectoJavaEEIN5BM/JavaEE2025IN5BM/src/java/Controlador/Controlador.java</file>
-        </group>
-        <group>
-            <file>file:/C:/ProyectoJavaEEIN5BM/ProyectoJavaEEIN5BM/JavaEE2025IN5BM/src/java/Modelo/ProductoDAO.java</file>
-            <file>file:/C:/ProyectoJavaEEIN5BM/ProyectoJavaEEIN5BM/JavaEE2025IN5BM/web/producto.jsp</file>
-            <file>file:/C:/ProyectoJavaEEIN5BM/ProyectoJavaEEIN5BM/JavaEE2025IN5BM/src/java/Modelo/Producto.java</file>
-            <file>file:/C:/ProyectoJavaEEIN5BM/ProyectoJavaEEIN5BM/JavaEE2025IN5BM/src/java/Modelo/FacturaDAO.java</file>
-            <file>file:/C:/ProyectoJavaEEIN5BM/ProyectoJavaEEIN5BM/JavaEE2025IN5BM/web/factura.jsp</file>
-            <file>file:/C:/ProyectoJavaEEIN5BM/ProyectoJavaEEIN5BM/JavaEE2025IN5BM/web/proveedor.jsp</file>
-            <file>file:/C:/ProyectoJavaEEIN5BM/ProyectoJavaEEIN5BM/JavaEE2025IN5BM/src/java/Modelo/ProveedorDAO.java</file>
-            <file>file:/C:/ProyectoJavaEEIN5BM/ProyectoJavaEEIN5BM/JavaEE2025IN5BM/web/admin.jsp</file>
-            <file>file:/C:/ProyectoJavaEEIN5BM/ProyectoJavaEEIN5BM/JavaEE2025IN5BM/src/java/Controlador/Controlador.java</file>
->>>>>>> origin/ftcchacon-2021560
         </group>
     </open-files>
 </project-private>

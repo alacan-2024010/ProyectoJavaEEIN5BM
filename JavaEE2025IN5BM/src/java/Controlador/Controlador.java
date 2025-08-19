@@ -19,7 +19,6 @@ import Modelo.ProveedorDAO;
 import Modelo.Venta;
 import Modelo.VentaDAO;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -145,10 +144,33 @@ public class Controlador extends HttpServlet {
 
                             break;
                         case "Editar":
+                            codEmpleado = Integer.parseInt(request.getParameter("codigoEmpleado"));
+                            Empleado e = empleadoDAO.listarCodigoEmpleado(codEmpleado);
+                            request.setAttribute("empleado", e);
+                            request.getRequestDispatcher("Controlador?menu=Empleado&accion=Listar").forward(request, response);
                             break;
                         case "Actualizar":
+                            String nombreEmpleado = request.getParameter("txtxNombreEmpleado");
+                            String apellidoEmpelado = request.getParameter("txtxApellidoEmpelado");
+                            String direccionEmpleado = request.getParameter("txtxDireccionEmpleado");
+                            String telefonoEmpleado = request.getParameter("txtTelefonoEmpleado");
+                            String emailEmpleado = request.getParameter("txtEmailEmpleado");
+                            String puestoEmpleado = request.getParameter("txtPuestoEmpleado");
+
+                            empleado.setNombreEmpleado(nombreEmpleado);
+                            empleado.setApellidoEmpleado(apellidoEmpelado);
+                            empleado.setDireccionEmpleado(direccionEmpleado);
+                            empleado.setTelefonoEmpleado(telefonoEmpleado);
+                            empleado.setEmailEmpleado(emailEmpleado);
+                            empleado.setPuestoEmpleado(puestoEmpleado);
+                            empleado.setCodigoEmpleado(codEmpleado);
+                            empleadoDAO.actualizar(empleado);
+                            request.getRequestDispatcher("Controlador?menu=Empleado&accion=Listar").forward(request, response);
                             break;
                         case "Eliminar":
+                            codEmpleado = Integer.parseInt(request.getParameter("codigoEmpleado"));
+                            empleadoDAO.eliminar(codEmpleado);
+                            request.getRequestDispatcher("Controlador?menu=Empleado&accion=Listar");
                             break;
                         case "Buscar":
                             break;
@@ -196,8 +218,8 @@ public class Controlador extends HttpServlet {
                     }
                     request.getRequestDispatcher("venta.jsp").forward(request, response);
                     break;
-                
-case "DetalleVenta":
+
+                case "DetalleVenta":
                     switch (accion) {
                         case "Listar":
                             List listaDetalleVenta = detalleventaDAO.listar();
@@ -207,9 +229,9 @@ case "DetalleVenta":
                             String cantidad = request.getParameter("txtCantidad");
 
                             String precioUnitario = request.getParameter("txtPrecioUnitario");
-                            
+
                             String Codventa = request.getParameter("txtCodigoVenta");
-                            
+
                             String Codproducto = request.getParameter("txtCodigoProducto");
 
                             detalleVenta.setCantidad(Integer.parseInt(cantidad));
@@ -217,7 +239,7 @@ case "DetalleVenta":
 
                             venta.setCodigoVenta(Integer.parseInt(Codventa));
                             detalleVenta.setVenta(venta);
-                            
+
                             producto.setCodigoProducto(Integer.parseInt(Codproducto));
                             detalleVenta.setProducto(producto);
 
@@ -227,8 +249,8 @@ case "DetalleVenta":
                         default:
                             throw new AssertionError();
                     }
-                 request.getRequestDispatcher("detalleVenta.jsp").forward(request, response);
-                 break;
+                    request.getRequestDispatcher("detalleVenta.jsp").forward(request, response);
+                    break;
 
                 case "Factura":
                     switch (accion) {
