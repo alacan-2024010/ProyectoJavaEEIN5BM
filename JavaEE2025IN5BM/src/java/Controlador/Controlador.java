@@ -6,6 +6,8 @@ package Controlador;
 
 import Modelo.Categoria;
 import Modelo.Cliente;
+import Modelo.Compra;
+import Modelo.CompraDAO;
 import Modelo.Empleado;
 import Modelo.EmpleadoDAO;
 import Modelo.Factura;
@@ -17,7 +19,6 @@ import Modelo.ProveedorDAO;
 import Modelo.Venta;
 import Modelo.VentaDAO;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -45,6 +46,8 @@ public class Controlador extends HttpServlet {
     FacturaDAO facturaDAO = new FacturaDAO();
     Venta venta = new Venta();
     VentaDAO ventaDAO = new VentaDAO();
+    Compra compra = new Compra();
+    CompraDAO compraDAO = new CompraDAO();
 
     int codEmpleado;
 
@@ -63,7 +66,7 @@ public class Controlador extends HttpServlet {
         String menu = request.getParameter("menu");
         String accion = request.getParameter("accion");
 
-        if (menu.equals("Principal")) {
+        if (menu != null && menu.equals("Principal")) {
             request.getRequestDispatcher("admin.jsp").forward(request, response);
         }
 
@@ -90,12 +93,11 @@ public class Controlador extends HttpServlet {
                             proveedor.setCorreoProveedor(correoProveedor);
 
                             proveedorDao.agregar(proveedor);
-                            request.getRequestDispatcher("Controlador?menu?Proveedor&accion=Listar").forward(request, response);
+                            request.getRequestDispatcher("Controlador?menu=Proveedor&accion=Listar").forward(request, response);
                             break;
                         default:
                             throw new AssertionError();
                     }
-
                     request.getRequestDispatcher("proveedor.jsp").forward(request, response);
                     break;
                 case "Producto":
@@ -124,7 +126,7 @@ public class Controlador extends HttpServlet {
                             producto.setProveedor(proveedor);
 
                             productoDao.agregar(producto);
-                            request.getRequestDispatcher("Controlador?menu?Producto&accion=Listar").forward(request, response);
+                            request.getRequestDispatcher("Controlador?menu=Producto&accion=Listar").forward(request, response);
                             break;
                         default:
                             throw new AssertionError();
@@ -138,7 +140,6 @@ public class Controlador extends HttpServlet {
                             request.setAttribute("empleados", listaEmpleado);
                             break;
                         case "Agregar":
-
                             break;
                         case "Editar":
                             break;
@@ -152,6 +153,7 @@ public class Controlador extends HttpServlet {
                             throw new AssertionError();
                     }
                     request.getRequestDispatcher("empleado.jsp").forward(request, response);
+                    break;
                 case "Venta":
                     switch (accion) {
                         case "Listar":
@@ -160,7 +162,6 @@ public class Controlador extends HttpServlet {
                             break;
                         case "Agregar":
                             String fecha = request.getParameter("txtFecha");
-
                             String total = request.getParameter("txtTotal");
                             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm");
                             LocalDateTime fechaEmision = LocalDateTime.parse(fecha, formatter);
@@ -177,7 +178,7 @@ public class Controlador extends HttpServlet {
                             venta.setCodEmpleado(empleado);
 
                             ventaDAO.agregar(venta);
-                            request.getRequestDispatcher("Controlador?menu?Venta&accion=Listar").forward(request, response);
+                            request.getRequestDispatcher("Controlador?menu=Venta&accion=Listar").forward(request, response);
                             break;
                         case "Editar":
                             break;
@@ -203,7 +204,6 @@ public class Controlador extends HttpServlet {
                             break;
                         case "Agregar":
                             String numeroFactura = request.getParameter("txtNumeroFactura");
-
                             String fechaEmisionStr = request.getParameter("txtFechaEmision");
                             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm");
                             LocalDateTime fechaEmision = LocalDateTime.parse(fechaEmisionStr, formatter);
@@ -219,16 +219,56 @@ public class Controlador extends HttpServlet {
                             factura.setCodVenta(venta);
 
                             facturaDAO.agregar(factura);
-                            request.getRequestDispatcher("Controlador?menu?Factura&accion=Listar").forward(request, response);
+                            request.getRequestDispatcher("Controlador?menu=Factura&accion=Listar").forward(request, response);
                             break;
                         default:
                             throw new AssertionError();
                     }
                     request.getRequestDispatcher("factura.jsp").forward(request, response);
                     break;
-                case "Compra":
-                    request.getRequestDispatcher("compras.jsp").forward(request, response);
-                    break;
+            // ... (Mantener el resto del código igual, solo reemplazar la sección case "Compra": )
+
+case "Compra":
+    switch (accion) {
+        case "Listar":
+            List listaCompra = compraDAO.listar();
+            request.setAttribute("compras", listaCompra);
+            break;
+        case "Agregar":
+            String fechaStr = request.getParameter("txtFechaCompra");
+            String totalStr = request.getParameter("txtTotal");
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm");
+            LocalDateTime fechaCompra = LocalDateTime.parse(fechaStr, formatter);
+
+            String codProveedor = request.getParameter("txtCodigoProveedor");
+            String codEmpleado = request.getParameter("txtCodigoEmpleado");
+
+            compra.setFechaCompra(fechaCompra);
+            compra.setTotal(BigDecimal.valueOf(Double.parseDouble(totalStr)));
+
+            proveedor.setCodigoProveedor(Integer.parseInt(codProveedor));
+            compra.setCodigoProveedor(proveedor);
+            empleado.setCodigoEmpleado(Integer.parseInt(codEmpleado));
+            compra.setCodigoEmpleado(empleado);
+
+            compraDAO.agregar(compra);
+            request.getRequestDispatcher("Controlador?menu=Compra&accion=Listar").forward(request, response);
+            break;
+        case "Editar":
+            break;
+        case "Actualizar":
+            break;
+        case "Eliminar":
+            break;
+        case "Buscar":
+            break;
+        default:
+            throw new AssertionError();
+    }
+    request.getRequestDispatcher("compras.jsp").forward(request, response);
+    break;
+
+// ... (Resto del código)
                 case "DetalleCompra":
                     request.getRequestDispatcher("detalleCompra.jsp").forward(request, response);
                     break;
@@ -242,7 +282,6 @@ public class Controlador extends HttpServlet {
                     throw new AssertionError();
             }
         }
-
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -283,5 +322,4 @@ public class Controlador extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-
 }

@@ -1,36 +1,21 @@
 package Modelo;
 
 import java.math.BigDecimal;
-import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.List;
-import java.util.Scanner;
 
-@Entity
-@Table(name = "Compras")
 public class Compra {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int codigoCompra;
-
-    @Column
     private LocalDateTime fechaCompra;
-
-    @Column(precision = 10, scale = 2)
     private BigDecimal total;
-
-    @Column
-    private int codigoProveedor;
-
-    @Column
-    private int codigoEmpleado;
+    private Proveedor codigoProveedor;
+    private Empleado codigoEmpleado;
 
     public Compra() {
     }
 
-    public Compra(LocalDateTime fechaCompra, BigDecimal total, int codigoProveedor, int codigoEmpleado) {
+    public Compra(int codigoCompra, LocalDateTime fechaCompra, BigDecimal total, Proveedor codigoProveedor, Empleado codigoEmpleado) {
+        this.codigoCompra = codigoCompra;
         this.fechaCompra = fechaCompra;
         this.total = total;
         this.codigoProveedor = codigoProveedor;
@@ -61,31 +46,19 @@ public class Compra {
         this.total = total;
     }
 
-    public int getCodigoProveedor() {
+    public Proveedor getCodigoProveedor() {
         return codigoProveedor;
     }
 
-    public void setCodigoProveedor(int codigoProveedor) {
+    public void setCodigoProveedor(Proveedor codigoProveedor) {
         this.codigoProveedor = codigoProveedor;
     }
 
-    public int getCodigoEmpleado() {
+    public Empleado getCodigoEmpleado() {
         return codigoEmpleado;
     }
 
-    public void setCodigoEmpleado(int codigoEmpleado) {
+    public void setCodigoEmpleado(Empleado codigoEmpleado) {
         this.codigoEmpleado = codigoEmpleado;
-    }
-
-    @Override
-    public String toString() {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-        return "Compra{" +
-                "codigoCompra=" + codigoCompra +
-                ", fechaCompra=" + (fechaCompra != null ? fechaCompra.format(formatter) : "null") +
-                ", total=" + total +
-                ", codigoProveedor=" + codigoProveedor +
-                ", codigoEmpleado=" + codigoEmpleado +
-                '}';
     }
 }
