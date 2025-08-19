@@ -14,16 +14,6 @@
         </group>
         <group>
             <file>file:/C:/ProyectoJavaEEIN5BM/ProyectoJavaEEIN5BM/JavaEE2025IN5BM/src/java/Modelo/ProductoDAO.java</file>
-            <file>file:/C:/ProyectoJavaEEIN5BM/ProyectoJavaEEIN5BM/JavaEE2025IN5BM/src/java/Modelo/FacturaDAO.java</file>
-            <file>file:/C:/ProyectoJavaEEIN5BM/ProyectoJavaEEIN5BM/JavaEE2025IN5BM/src/java/Modelo/Producto.java</file>
-            <file>file:/C:/ProyectoJavaEEIN5BM/ProyectoJavaEEIN5BM/JavaEE2025IN5BM/web/factura.jsp</file>
-            <file>file:/C:/ProyectoJavaEEIN5BM/ProyectoJavaEEIN5BM/JavaEE2025IN5BM/web/proveedor.jsp</file>
-            <file>file:/C:/ProyectoJavaEEIN5BM/ProyectoJavaEEIN5BM/JavaEE2025IN5BM/web/admin.jsp</file>
-            <file>file:/C:/ProyectoJavaEEIN5BM/ProyectoJavaEEIN5BM/JavaEE2025IN5BM/src/java/Modelo/ProveedorDAO.java</file>
-            <file>file:/C:/ProyectoJavaEEIN5BM/ProyectoJavaEEIN5BM/JavaEE2025IN5BM/src/java/Controlador/Controlador.java</file>
-        </group>
-        <group>
-            <file>file:/C:/ProyectoJavaEEIN5BM/ProyectoJavaEEIN5BM/JavaEE2025IN5BM/src/java/Modelo/ProductoDAO.java</file>
             <file>file:/C:/ProyectoJavaEEIN5BM/ProyectoJavaEEIN5BM/JavaEE2025IN5BM/web/producto.jsp</file>
             <file>file:/C:/ProyectoJavaEEIN5BM/ProyectoJavaEEIN5BM/JavaEE2025IN5BM/src/java/Modelo/Producto.java</file>
             <file>file:/C:/ProyectoJavaEEIN5BM/ProyectoJavaEEIN5BM/JavaEE2025IN5BM/src/java/Modelo/FacturaDAO.java</file>
@@ -68,6 +58,24 @@
             <file>file:/C:/ProyectoJavaEEIN5BM/JavaEE2025IN5BM/src/java/Modelo/Cliente.java</file>
             <file>file:/C:/ProyectoJavaEEIN5BM/JavaEE2025IN5BM/src/java/Modelo/Producto.java</file>
             <file>file:/C:/ProyectoJavaEEIN5BM/JavaEE2025IN5BM/nbproject/build-impl.xml</file>
+            <file>file:/C:/ProyectoJavaEEIN5BM/JavaEE2025IN5BM/web/empleado.jsp</file>
+            <file>file:/C:/ProyectoJavaEEIN5BM/JavaEE2025IN5BM/web/admin.jsp</file>
+            <file>file:/C:/ProyectoJavaEEIN5BM/JavaEE2025IN5BM/web/cliente.jsp</file>
+            <file>file:/C:/ProyectoJavaEEIN5BM/JavaEE2025IN5BM/src/java/Modelo/CategoriaDAO.java</file>
+        </group>
+        <group>
+            <file>file:/C:/ProyectoJavaEEIN5BM/JavaEE2025IN5BM/src/java/Modelo/ClienteDAO.java</file>
+            <file>file:/C:/ProyectoJavaEEIN5BM/JavaEE2025IN5BM/web/proveedor.jsp</file>
+            <file>file:/C:/ProyectoJavaEEIN5BM/JavaEE2025IN5BM/src/java/Modelo/ProveedorDAO.java</file>
+            <file>file:/C:/ProyectoJavaEEIN5BM/JavaEE2025IN5BM/src/java/Modelo/ProductoDAO.java</file>
+            <file>file:/C:/ProyectoJavaEEIN5BM/JavaEE2025IN5BM/src/java/Modelo/EmpleadoDAO.java</file>
+            <file>file:/C:/ProyectoJavaEEIN5BM/JavaEE2025IN5BM/web/producto.jsp</file>
+            <file>file:/C:/ProyectoJavaEEIN5BM/JavaEE2025IN5BM/src/java/Modelo/Empleado.java</file>
+            <file>file:/C:/ProyectoJavaEEIN5BM/JavaEE2025IN5BM/src/java/Controlador/Controlador.java</file>
+            <file>file:/C:/ProyectoJavaEEIN5BM/JavaEE2025IN5BM/src/java/Modelo/Categoria.java</file>
+            <file>file:/C:/ProyectoJavaEEIN5BM/JavaEE2025IN5BM/nbproject/build-impl.xml~</file>
+            <file>file:/C:/ProyectoJavaEEIN5BM/JavaEE2025IN5BM/src/java/Modelo/Cliente.java</file>
+            <file>file:/C:/ProyectoJavaEEIN5BM/JavaEE2025IN5BM/src/java/Modelo/Producto.java</file>
             <file>file:/C:/ProyectoJavaEEIN5BM/JavaEE2025IN5BM/web/empleado.jsp</file>
             <file>file:/C:/ProyectoJavaEEIN5BM/JavaEE2025IN5BM/web/admin.jsp</file>
             <file>file:/C:/ProyectoJavaEEIN5BM/JavaEE2025IN5BM/web/cliente.jsp</file>
