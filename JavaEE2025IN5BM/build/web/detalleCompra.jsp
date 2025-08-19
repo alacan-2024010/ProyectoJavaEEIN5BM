@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -15,29 +16,19 @@
 </head>
 <body>
 
-    <nav>
-        
-    </nav>
-
-    <div class="fondo"></div>
-
     <div class="contenedor-principal">
 
         <!-- Panel Formulario -->
-        <div class="panel-formulario">
+        <div class="form-container">
             <h1>Gestión de Detalle de Compras</h1>
-            <form action="" method="post" class="formulario">
-                <input type="text" name="txtCodigoDetalleCompra" placeholder="Cantidad" >
+            <form action="Controlador?menu=DetalleCompra" method="post" class="formulario">
                 <input type="text" name="txtCantidad" placeholder="Cantidad" required>
-                <input type="text" name="txtPrecio" placeholder="Precio Unitario" required>
-                <input type="text" name="txtCodigoCompra" placeholder="Codigo Compra" required>
-                <input type="text" name="txtCodigoProducto" placeholder="Codigo Producto" required>
+                <input type="text" name="txtPrecioUnitario" placeholder="Precio Unitario" required>
+                <input type="text" name="txtCodigoCompra" placeholder="Código Compra" required>
+                <input type="text" name="txtCodigoProducto" placeholder="Código Producto" required>
 
                 <div class="botones">
-                    <button type="submit" name="btnAgregar">Agregar</button>
-                    <button type="submit" name="btnActualizar">Actualizar</button>
-                    <button type="submit" name="btnBuscar">Buscar</button>
-                    <button type="submit" name="btnEliminar" class="eliminar">Eliminar</button>
+                    <button type="submit" name="accion" value="Agregar">Agregar</button>
                 </div>
 
                 <div class="marca-interna">
@@ -47,25 +38,29 @@
         </div>
 
         <!-- Panel Tabla -->
-        <div class="panel-tabla">
-            <div class="tabla-contenedor">
-                <table class="tabla">
-                    <thead>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Código</th>
+                        <th>Cantidad</th>
+                        <th>Precio Unitario</th>
+                        <th>Código Compra</th>
+                        <th>Código Producto</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <c:forEach var="detalle" items="${detalleCompras}">
                         <tr>
-                            <th>Codigo</th>
-                            <th>Cantidad</th>
-                            <th>Precio Unitario</th>
-                            <th>Codigo Compra</th>
-                            <th>Codigo Producto</th>
+                            <td>${detalle.codigoDetalleCompra}</td>
+                            <td>${detalle.cantidad}</td>
+                            <td>${detalle.precioUnitario}</td>
+                            <td>${detalle.codigoCompra}</td>
+                            <td>${detalle.codigoProducto}</td>
                         </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                  
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+                    </c:forEach>
+                </tbody>
+            </table>
         </div>
 
     </div>

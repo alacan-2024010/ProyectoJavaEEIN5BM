@@ -6,6 +6,8 @@ package Controlador;
 
 import Modelo.Categoria;
 import Modelo.Cliente;
+import Modelo.DetalleCompra;
+import Modelo.DetalleCompraDAO;
 import Modelo.Empleado;
 import Modelo.EmpleadoDAO;
 import Modelo.Factura;
@@ -45,6 +47,8 @@ public class Controlador extends HttpServlet {
     FacturaDAO facturaDAO = new FacturaDAO();
     Venta venta = new Venta();
     VentaDAO ventaDAO = new VentaDAO();
+    DetalleCompra detalleCompra = new DetalleCompra();
+    DetalleCompraDAO detalleCompraDAO = new DetalleCompraDAO();
 
     int codEmpleado;
 
@@ -230,8 +234,34 @@ public class Controlador extends HttpServlet {
                     request.getRequestDispatcher("compras.jsp").forward(request, response);
                     break;
                 case "DetalleCompra":
-                    request.getRequestDispatcher("detalleCompra.jsp").forward(request, response);
-                    break;
+                     switch (accion) {
+        case "Listar":
+            List listaDetalleCompra = detalleCompraDAO.listar();
+            request.setAttribute("detalleCompras", listaDetalleCompra);
+            break;
+
+        case "Agregar":
+            String cantidadStr = request.getParameter("txtCantidad");
+            String precioUnitarioStr = request.getParameter("txtPrecioUnitario");
+            String codCompra = request.getParameter("txtCodigoCompra");
+            String codProducto = request.getParameter("txtCodigoProducto");
+
+            detalleCompra.setCantidad(Integer.parseInt(cantidadStr));
+            detalleCompra.setPrecioUnitario(Double.parseDouble(precioUnitarioStr));
+            detalleCompra.setCodigoCompra(Integer.parseInt(codCompra));
+            detalleCompra.setCodigoProducto(Integer.parseInt(codProducto));
+
+            detalleCompraDAO.agregar(detalleCompra);
+            request.getRequestDispatcher("Controlador?menu=DetalleCompra&accion=Listar").forward(request, response);
+            break;
+
+        default:
+            throw new AssertionError();
+    }
+
+    request.getRequestDispatcher("detalleCompra.jsp").forward(request, response);
+    break;
+
                 case "Cambiar":
                     request.getRequestDispatcher("principal.jsp").forward(request, response);
                     break;
