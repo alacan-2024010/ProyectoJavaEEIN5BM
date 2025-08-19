@@ -83,8 +83,8 @@ nav .logo {
   border-radius: var(--border-radius);
   padding: 20px;
   margin: 20px;
-  width: 95%;
-  max-width: 1300px;
+  width: 100%;
+  max-width: 2300px;
   gap: 20px;
   box-shadow: 0 20px 50px var(--shadow-color);
   backdrop-filter: blur(15px);
@@ -271,42 +271,64 @@ form input:focus {
   transform: scale(0.95);
 }
 
-/* Botón eliminar rojo especial */
-button.eliminar-nuevo {
-  opacity: 0;
-  animation: fadeIn 0.6s ease-out forwards 0.4s;
-  width: 100%;
-  height: 40px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  background: #e62222;
-  border: none;
-  border-radius: 5px;
-  box-shadow: 1px 1px 3px rgba(0,0,0,0.15);
-  margin-top: 10px;
-  color: white;
-  font-weight: bold;
-  position: relative;
-  overflow: hidden;
-  transition: 200ms;
+/* Botones de Actualizar y Eliminar en la tabla */
+button.actualizar,
+button.eliminar {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 100px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    backdrop-filter: blur(5px);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
 }
 
-button.eliminar-nuevo:hover {
-  background: #ff3636;
+/* Botón Actualizar */
+button.actualizar {
+    background: linear-gradient(to right, #2e8b57, #3cb371);
+    color: white;
 }
 
-button.eliminar-nuevo:focus {
-  outline: none;
+button.actualizar:hover {
+    background: linear-gradient(to right, #3cb371, #2e8b57);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(60, 179, 113, 0.5);
 }
 
-button.eliminar-nuevo:active {
-  transform: scale(0.95);
+/* Botón Eliminar */
+button.eliminar {
+    background: linear-gradient(to right, #b91c1c, #dc3545);
+    color: white;
 }
+
+button.eliminar:hover {
+    background: linear-gradient(to right, #dc3545, #b91c1c);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(220, 53, 69, 0.5);
+}
+
+/* Efecto de click para ambos */
+button.actualizar:active,
+button.eliminar:active {
+    transform: scale(0.98);
+}
+
 
 /* Panel de tabla */
 .table-container {
   opacity: 0;
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
   transform: translateY(20px);
   animation: fadeInUp 0.6s ease-out forwards 0.2s;
   flex: 1.8;
@@ -315,13 +337,14 @@ button.eliminar-nuevo:active {
   border-radius: var(--border-radius);
   backdrop-filter: blur(15px);
   box-shadow: 0 10px 30px var(--shadow-color);
-  overflow: hidden;
   transition: var(--transition);
   position: relative;
   border: 1px solid rgba(255, 255, 255, 0.1);
   transform: translateZ(20px);
-  align-self: flex-start; /* Asegura que la tabla comience desde arriba */
+  align-self: flex-start;
+  max-height: none;
 }
+
 
 .table-container:hover {
   box-shadow: 0 15px 40px rgba(212, 176, 103, 0.7);
@@ -356,7 +379,7 @@ thead {
 
 th, td {
   padding: 10px;
-  max-width: 120px;
+  max-width: 250px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;

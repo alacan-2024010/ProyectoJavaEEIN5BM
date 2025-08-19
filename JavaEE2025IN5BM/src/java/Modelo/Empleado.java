@@ -5,23 +5,32 @@ public class Empleado {
     private int codigoEmpleado;
     private String nombreEmpleado;
     private String apellidoEmpleado;
-    private String direccionEmpleado;      
+    private String direccionEmpleado;     
     private String telefonoEmpleado;
     private String emailEmpleado;
     private String puestoEmpleado;
+    private byte[] imagenPerfil;
 
     public Empleado() {
     }
-
-    public Empleado(String nombreEmpleado, String apellidoEmpleado, String direccionEmpleado, String telefonoEmpleado, String emailEmpleado, String puestoEmpleado) {
+    
+    public Empleado(String nombreEmpleado, String apellidoEmpleado, String direccionEmpleado, String telefonoEmpleado, String emailEmpleado, String puestoEmpleado, byte[] imagenPerfil) {
         this.nombreEmpleado = nombreEmpleado;
         this.apellidoEmpleado = apellidoEmpleado;
         this.direccionEmpleado = direccionEmpleado;
         this.telefonoEmpleado = telefonoEmpleado;
         this.emailEmpleado = emailEmpleado;
         this.puestoEmpleado = puestoEmpleado;
+        this.imagenPerfil = imagenPerfil;
     }
 
+    public Empleado(String nombreEmpleado, String apellidoEmpleado, String telefonoEmpleado, String emailEmpleado) {
+        this.nombreEmpleado = nombreEmpleado;
+        this.apellidoEmpleado = apellidoEmpleado;
+        this.telefonoEmpleado = telefonoEmpleado;
+        this.emailEmpleado = emailEmpleado;
+    }
+    
     public int getCodigoEmpleado() {
         return codigoEmpleado;
     }
@@ -77,9 +86,12 @@ public class Empleado {
     public void setPuestoEmpleado(String puestoEmpleado) {
         this.puestoEmpleado = puestoEmpleado;
     }
-
-    @Override
-    public String toString() {
-        return "Empleado{" + "codigoEmpleado=" + codigoEmpleado + ", nombreEmpleado=" + nombreEmpleado + ", apellidoEmpleado=" + apellidoEmpleado + ", direccionEmpleado=" + direccionEmpleado + ", telefonoEmpleado=" + telefonoEmpleado + ", emailEmpleado=" + emailEmpleado + ", puestoEmpleado=" + puestoEmpleado + '}';
+    
+    public byte[] getImagenPerfil() {
+        return imagenPerfil;
+    }
+    
+    public void setImagenPerfil(byte[] imagenPerfil) {
+        this.imagenPerfil = imagenPerfil;
     }
 }

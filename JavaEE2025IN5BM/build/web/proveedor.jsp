@@ -31,9 +31,7 @@
 
                 <div class="botones">
                     <button type="submit" name="accion" value="Agregar">Agregar</button>
-                    <button type="submit" name="accion" value="Actualizar">Actualizar</button>
                     <button type="submit" name="accion" value="Buscar">Buscar</button>
-                     <button type="submit"name="accion" value="Eliminar" class="eliminar-nuevo">Eliminar</button>
                 </div>
             </form>
             <div class="marca-interna">
@@ -50,6 +48,8 @@
                         <th>Dirección</th>
                         <th>Celular</th>
                         <th>Correo</th>
+                        <th>Actualizar</th>
+                        <th>Eliminar</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -60,6 +60,12 @@
                             <td>${proveedor.direccionProveedor}</td>
                             <td>${proveedor.telefonoProveedor}</td>
                             <td>${proveedor.correoProveedor}</td>
+                            <td>
+                                <button type="submit" name="accion" class="actualizar">Actualizar</button>
+                            </td>
+                            <td>
+                                <button type="submit" name="accion" class="eliminar">Eliminar</button>
+                            </td>
                         </tr>
                     </c:forEach>
                 </tbody>
