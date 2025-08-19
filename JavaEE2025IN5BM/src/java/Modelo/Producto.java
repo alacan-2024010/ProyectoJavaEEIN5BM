@@ -2,36 +2,20 @@
 package Modelo;
 
 import java.math.BigDecimal;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
 
-@Entity
-@Table (name = "Productos")
 public class Producto {
-     @Id
-    @Column
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+    
     private int codigoProducto;
-    @Column
+    
     private String nombreProducto;
-    @Column
+    
     private String descripcionProducto;
-    @Column
+    
     private BigDecimal precioProducto; 
-    @Column
     private int stock;
-    @ManyToOne
-    @JoinColumn(name = "codigoCategoria")
     private Categoria categoria;
 
-    @ManyToOne
-    @JoinColumn(name = "codigoProveedor")
     private Proveedor proveedor;
 
     public Producto() {

@@ -64,7 +64,7 @@ public class EmpleadoDAO {
         return listaEmpleados;
     }
     
-    //Operacion Agregar
+    // Agregar
     public int agregar(Empleado emp){
         String sql = "CALL sp_agregarEmpleado(?,?,?,?,?,?)";
         try {

@@ -69,7 +69,7 @@
                                 <td>${producto.descripcionProducto}</td>
                                 <td>${producto.precioProducto}</td>
                                 <td>${producto.stock}</td>
-                                <td>${producto.categoria.codigoCategoria}</td>
+                                <td>${producto.categoria.codigCategoria}</td>
                                 <td>${producto.proveedor.codigoProveedor}</td>
                             </tr>
                             

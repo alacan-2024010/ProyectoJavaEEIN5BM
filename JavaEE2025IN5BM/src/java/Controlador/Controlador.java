@@ -7,6 +7,9 @@ package Controlador;
 import Modelo.Cliente;
 import Modelo.ClienteDAO;
 import Modelo.Categoria;
+import Modelo.Cliente;
+import Modelo.DetalleCompra;
+import Modelo.DetalleCompraDAO;
 import Modelo.Empleado;
 import Modelo.EmpleadoDAO;
 import Modelo.Factura;
@@ -16,6 +19,7 @@ import Modelo.ProductoDAO;
 import Modelo.Proveedor;
 import Modelo.ProveedorDAO;
 import Modelo.Venta;
+import Modelo.VentaDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.math.BigDecimal;
@@ -44,6 +48,9 @@ public class Controlador extends HttpServlet {
     Factura factura = new Factura();
     FacturaDAO facturaDAO = new FacturaDAO();
     Venta venta = new Venta();
+    VentaDAO ventaDAO = new VentaDAO();
+    DetalleCompra detalleCompra = new DetalleCompra();
+    DetalleCompraDAO detalleCompraDAO = new DetalleCompraDAO();
 
     int codEmpleado;
 
@@ -174,6 +181,43 @@ public class Controlador extends HttpServlet {
                     }
                     request.getRequestDispatcher("empleado.jsp").forward(request, response);
                 case "Venta":
+                    switch (accion) {
+                        case "Listar":
+                            List listaVenta = ventaDAO.listar();
+                            request.setAttribute("ventas", listaVenta);
+                            break;
+                        case "Agregar":
+                            String fecha = request.getParameter("txtFecha");
+
+                            String total = request.getParameter("txtTotal");
+                            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm");
+                            LocalDateTime fechaEmision = LocalDateTime.parse(fecha, formatter);
+
+                            String codCliente = request.getParameter("txtCodigoCliente");
+                            String codEmpleado = request.getParameter("txtCodigoEmpleado");
+
+                            venta.setFecha(fechaEmision);
+                            venta.setTotal(BigDecimal.valueOf(Double.parseDouble(total)));
+
+                            cliente.setCodigoCliente(Integer.parseInt(codCliente));
+                            venta.setCodCliente(cliente);
+                            empleado.setCodigoEmpleado(Integer.parseInt(codEmpleado));
+                            venta.setCodEmpleado(empleado);
+
+                            ventaDAO.agregar(venta);
+                            request.getRequestDispatcher("Controlador?menu?Venta&accion=Listar").forward(request, response);
+                            break;
+                        case "Editar":
+                            break;
+                        case "Actualizar":
+                            break;
+                        case "Eliminar":
+                            break;
+                        case "Buscar":
+                            break;
+                        default:
+                            throw new AssertionError();
+                    }
                     request.getRequestDispatcher("venta.jsp").forward(request, response);
                     break;
                 case "DetalleVenta":
@@ -214,8 +258,34 @@ public class Controlador extends HttpServlet {
                     request.getRequestDispatcher("compras.jsp").forward(request, response);
                     break;
                 case "DetalleCompra":
-                    request.getRequestDispatcher("detalleCompra.jsp").forward(request, response);
-                    break;
+                     switch (accion) {
+        case "Listar":
+            List listaDetalleCompra = detalleCompraDAO.listar();
+            request.setAttribute("detalleCompras", listaDetalleCompra);
+            break;
+
+        case "Agregar":
+            String cantidadStr = request.getParameter("txtCantidad");
+            String precioUnitarioStr = request.getParameter("txtPrecioUnitario");
+            String codCompra = request.getParameter("txtCodigoCompra");
+            String codProducto = request.getParameter("txtCodigoProducto");
+
+            detalleCompra.setCantidad(Integer.parseInt(cantidadStr));
+            detalleCompra.setPrecioUnitario(Double.parseDouble(precioUnitarioStr));
+            detalleCompra.setCodigoCompra(Integer.parseInt(codCompra));
+            detalleCompra.setCodigoProducto(Integer.parseInt(codProducto));
+
+            detalleCompraDAO.agregar(detalleCompra);
+            request.getRequestDispatcher("Controlador?menu=DetalleCompra&accion=Listar").forward(request, response);
+            break;
+
+        default:
+            throw new AssertionError();
+    }
+
+    request.getRequestDispatcher("detalleCompra.jsp").forward(request, response);
+    break;
+
                 case "Cambiar":
                     request.getRequestDispatcher("principal.jsp").forward(request, response);
                     break;
